@@ -1,0 +1,27 @@
+name: "Picnic MCP + OpenAI Tunnel"
+version: "1.0.2"
+slug: "picnic_mcp"
+description: "Run Picnic MCP privately through the official OpenAI Secure MCP Tunnel."
+url: "https://github.com/ivo-toby/mcp-picnic"
+startup: application
+boot: auto
+init: false
+arch:
+  - amd64
+  - aarch64
+ports:
+  8080/tcp: 8080
+ports_description:
+  8080/tcp: "OpenAI tunnel-client health and admin UI"
+options:
+  picnic_username: null
+  picnic_password: null
+  picnic_country_code: "NL"
+  openai_api_key: null
+  tunnel_id: null
+schema:
+  picnic_username: email
+  picnic_password: password
+  picnic_country_code: "list(NL|DE|FR)"
+  openai_api_key: password
+  tunnel_id: str
